@@ -1,4 +1,4 @@
-const { pills } = require('../data/data');
+const data = require('../data/data.json');
 
 const getData = async (req, res) => {
 
@@ -6,7 +6,7 @@ const getData = async (req, res) => {
         
         return res.status(200).json({
             ok: true,
-            pills
+            data
         });
 
     } catch (error) {

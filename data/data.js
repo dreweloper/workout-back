@@ -1,4 +1,5 @@
-const pills = [
+const data = [
+    
     {
         id: 1,
         title: "Intro Teórica",
@@ -6,7 +7,7 @@ const pills = [
         url_pdf: null,
         url_iframe_notebook: null,
         url_iframe_vimeo: `<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/842191598?h=4164d71246&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Árboles de decisión Introducción"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`,
-        url_canal_slack: "#",
+        url_slack: "https://app.slack.com/client/TRZM9LBQU/C04SVHQP7MJ",
         url_challenge: null
     },
     {
@@ -16,7 +17,7 @@ const pills = [
         url_pdf: null,
         url_iframe_notebook: null,
         url_iframe_vimeo: null,
-        url_canal_slack: "#",
+        url_slack: "https://app.slack.com/client/TRZM9LBQU/C04SVHQP7MJ",
         url_challenge: null
     },
     {
@@ -26,7 +27,7 @@ const pills = [
         url_pdf: null,
         url_iframe_notebook: null,
         url_iframe_vimeo: null,
-        url_canal_slack: "#",
+        url_slack: "https://app.slack.com/client/TRZM9LBQU/C04SVHQP7MJ",
         url_challenge: null
     },
     {
@@ -36,7 +37,7 @@ const pills = [
         url_pdf: null,
         url_iframe_notebook: null,
         url_iframe_vimeo: null,
-        url_canal_slack: "#",
+        url_slack: "https://app.slack.com/client/TRZM9LBQU/C04SVHQP7MJ",
         url_challenge: null
     },
     {
@@ -46,7 +47,7 @@ const pills = [
         url_pdf: null,
         url_iframe_notebook: null,
         url_iframe_vimeo: null,
-        url_canal_slack: "#",
+        url_slack: "https://app.slack.com/client/TRZM9LBQU/C04SVHQP7MJ",
         url_challenge: null
     },
     {
@@ -56,10 +57,10 @@ const pills = [
         url_pdf: null,
         url_iframe_notebook: null,
         url_iframe_vimeo: null,
-        url_canal_slack: "#",
+        url_slack: "https://app.slack.com/client/TRZM9LBQU/C04SVHQP7MJ",
         url_challenge: "#"
     },
 ]
 
 
-module.exports = { pills };
+module.exports = { data };
