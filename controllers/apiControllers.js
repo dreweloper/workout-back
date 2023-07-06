@@ -23,4 +23,43 @@ const getData = async (req, res) => {
 };
 
 
-module.exports = { getData };
+// NUEVOS CONTROLLERS
+
+const getAllData = async (req, res) => {
+
+    res.send('Capturando la ruta');
+
+}; //!GETALLDATA
+
+const getPill = async (req, res) => {
+
+    res.send('Capturando la ruta');
+
+}; //!GETPILL
+
+const addData = async (req, res) => {
+
+    res.send('Capturando la ruta');
+
+}; //!ADDDATA
+
+const updateData = async (req, res) => {
+
+    res.send('Capturando la ruta');
+
+}; //!UPDATEDATA
+
+const deleteData = async (req, res) => {
+
+    res.send('Capturando la ruta');
+
+};
+
+
+module.exports = { getData,
+    getAllData,
+    getPill,
+    addData,
+    updateData,
+    deleteData
+};
