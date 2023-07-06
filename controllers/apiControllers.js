@@ -28,17 +28,7 @@ const getData = async (req, res) => {
 
 const getAllData = async (req, res) => {
 
-    try {
-        
-        const cosa = await Workout.find();
-
-        console.log(cosa);
-
-    } catch (error) {
-        
-        console.log(error);
-
-    };
+    res.send('Capturando la ruta');
 
 }; //!GETALLDATA
 
