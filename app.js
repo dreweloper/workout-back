@@ -1,10 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+const connection = require('./helpers/mongodbConnection');
 
 // Port config
 const app = express();
 const port = process.env.PORT | 3000;
+
+// MongoDB connection
+connection();
 
 // Cors middleware
 app.use(cors());
