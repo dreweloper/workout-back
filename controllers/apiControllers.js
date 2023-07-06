@@ -1,4 +1,5 @@
 const data = require('../data/data.json');
+const Workout = require('../models/workoutModel');
 
 const getData = async (req, res) => {
 
@@ -27,7 +28,17 @@ const getData = async (req, res) => {
 
 const getAllData = async (req, res) => {
 
-    res.send('Capturando la ruta');
+    try {
+        
+        const cosa = await Workout.find();
+
+        console.log(cosa);
+
+    } catch (error) {
+        
+        console.log(error);
+
+    };
 
 }; //!GETALLDATA
 
