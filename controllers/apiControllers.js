@@ -26,41 +26,60 @@ const getData = async (req, res) => {
 
 // NUEVOS CONTROLLERS
 
-const getAllData = async (req, res) => {
+const getLessons = async (req, res) => {
+
+    try {
+        
+        const response = await Lesson.find();
+
+        res.status(200).json({
+            ok: true,
+            response
+        });
+        
+    } catch (error) {
+      
+        console.log(error);
+
+        res.status(500).json({
+            ok: false,
+            msg: 'Contacte con el administrador.',
+            error
+        });
+        
+    };
+
+}; //!GETLESSONS
+
+const getLessonByID = async (req, res) => {
 
     res.send('Capturando la ruta');
 
-}; //!GETALLDATA
+}; //!GETLESSONBYID
 
-const getPill = async (req, res) => {
-
-    res.send('Capturando la ruta');
-
-}; //!GETPILL
-
-const addData = async (req, res) => {
+const addLesson = async (req, res) => {
 
     res.send('Capturando la ruta');
 
-}; //!ADDDATA
+}; //!ADDLESSON
 
-const updateData = async (req, res) => {
-
-    res.send('Capturando la ruta');
-
-}; //!UPDATEDATA
-
-const deleteData = async (req, res) => {
+const updateLesson = async (req, res) => {
 
     res.send('Capturando la ruta');
 
-};
+}; //!UPDATELESSON
+
+const deleteLesson = async (req, res) => {
+
+    res.send('Capturando la ruta');
+
+}; //!DELETELESSON
 
 
 module.exports = { getData,
-    getAllData,
-    getPill,
-    addData,
-    updateData,
-    deleteData
+    getLessons,
+    getLessonByID,
+    addLesson,
+    updateLesson,
+    deleteLesson
 };

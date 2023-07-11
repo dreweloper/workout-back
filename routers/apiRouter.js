@@ -2,11 +2,11 @@ const { Router } = require('express');
 const router = Router();
 
 const { getData,
-    getAllData,
-    getPill,
-    addData,
-    updateData,
-    deleteData
+    getLessons,
+    getLessonByID,
+    addLesson,
+    updateLesson,
+    deleteLesson
 } = require('../controllers/apiControllers');
 
 
@@ -14,15 +14,15 @@ router.get('/', getData);
 
 // RUTAS NUEVAS
 
-router.get('/all', getAllData);
+router.get('/all', getLessons);
 
-router.get('/:id', getPill);
+router.get('/:id', getLessonByID);
 
-router.post('/', addData);
+router.post('/', addLesson);
 
-router.put('/:id', updateData);
+router.put('/:id', updateLesson);
 
-router.delete('/:id', deleteData);
+router.delete('/:id', deleteLesson);
 
 
 module.exports = router;
