@@ -43,7 +43,7 @@ const getLessons = async (req, res) => {
 
             res.status(400).json({
                 ok: false,
-                msg: 'No se ha encontrado ninguna lección en la base de datos.'
+                msg: 'No se han encontrado documentos en la base de datos.'
             });
 
         };
@@ -111,11 +111,22 @@ const addLesson = async (req, res) => {
         
         const data = await newLesson.save();
 
-        res.status(201).json({
-            ok: true,
-            msg: 'La lección se ha creado con éxito.',
-            data
-        });
+        if(data){
+
+            res.status(201).json({
+                ok: true,
+                msg: 'El documento se ha creado con éxito.',
+                data
+            });
+
+        } else {
+
+            res.status(400).json({
+                ok: false,
+                msg: 'Error: no se ha podido guardar el documento en la base de datos.'
+            });
+
+        };
 
     } catch (error) {
         
@@ -155,7 +166,7 @@ const updateLesson = async (req, res) => {
 
             res.status(400).json({
                 ok: false,
-                msg: `Error: no se ha podido actualizar la lección con ID ${id}.`
+                msg: `Error: no se ha podido actualizar el documento con ID ${id}.`
             });
 
         };

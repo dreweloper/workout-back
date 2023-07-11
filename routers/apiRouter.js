@@ -10,11 +10,11 @@ const { getData,
 } = require('../controllers/apiControllers');
 
 
-router.get('/', getData);
+// router.get('/', getData);
 
 // RUTAS NUEVAS
 
-router.get('/all', getLessons);
+router.get('/', getLessons);
 
 router.get('/:id', getLessonByID);
 
