@@ -13,6 +13,11 @@ connection();
 // Cors middleware
 app.use(cors());
 
+// Parse application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: false }));
+// Parse application/json
+app.use(express.json());
+
 // Routes
 app.use('/api/v1', require('./routers/apiRouter'));
 

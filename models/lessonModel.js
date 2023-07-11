@@ -41,6 +41,7 @@ const lessonSchema = new Schema({
             url_challenge: { type: String }
         }
     ]
+    
 }, { timestamps: true });
 
 

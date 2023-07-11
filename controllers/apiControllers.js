@@ -59,7 +59,28 @@ const getLessonByID = async (req, res) => {
 
 const addLesson = async (req, res) => {
 
-    res.send('Capturando la ruta');
+    const newLesson = new Lesson(req.body);
+
+    try {
+        
+        const request = await newLesson.save();
+
+        res.status(201).json({
+            ok: true,
+            request
+        });
+
+    } catch (error) {
+        
+        console.log(error);
+
+        res.status(500).json({
+            ok: false,
+            msg: 'Contacte con el administrador.',
+            error: error.message
+        });
+
+    };
 
 }; //!ADDLESSON
 
