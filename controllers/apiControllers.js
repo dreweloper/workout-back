@@ -51,11 +51,46 @@ const getLessons = async (req, res) => {
 
 }; //!GETLESSONS
 
+
 const getLessonByID = async (req, res) => {
 
-    res.send('Capturando la ruta');
+    const { id } = req.params;
+
+
+    try {
+
+        const response = await Lesson.findById(id);
+
+        if(response){
+
+            res.status(200).json({
+                ok: true,
+                response
+            });
+
+        } else {
+
+            res.status(400).json({
+                ok: false,
+                msg: `Error: no se ha encontrado el documento con ID ${id}.`
+            });
+
+        };
+        
+    } catch (error) {
+    
+        console.log(error);
+
+        res.status(500).json({
+            ok: false,
+            msg: 'Contacte con el administrador.',
+            error: error.message
+        });
+
+    };
 
 }; //!GETLESSONBYID
+
 
 const addLesson = async (req, res) => {
 
@@ -84,11 +119,13 @@ const addLesson = async (req, res) => {
 
 }; //!ADDLESSON
 
+
 const updateLesson = async (req, res) => {
 
     res.send('Capturando la ruta');
 
 }; //!UPDATELESSON
+
 
 const deleteLesson = async (req, res) => {
 
