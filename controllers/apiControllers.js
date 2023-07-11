@@ -1,5 +1,5 @@
 const data = require('../data/data.json');
-const Workout = require('../models/workoutModel');
+const Lesson = require('../models/lessonModel');
 
 const getData = async (req, res) => {
 
