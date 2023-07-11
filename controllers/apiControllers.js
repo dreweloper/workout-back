@@ -30,11 +30,11 @@ const getLessons = async (req, res) => {
 
     try {
         
-        const response = await Lesson.find();
+        const data = await Lesson.find();
 
         res.status(200).json({
             ok: true,
-            response
+            data
         });
         
     } catch (error) {
@@ -59,13 +59,13 @@ const getLessonByID = async (req, res) => {
 
     try {
 
-        const response = await Lesson.findById(id);
+        const data = await Lesson.findById(id);
 
-        if(response){
+        if(data){
 
             res.status(200).json({
                 ok: true,
-                response
+                data
             });
 
         } else {
@@ -98,11 +98,11 @@ const addLesson = async (req, res) => {
 
     try {
         
-        const request = await newLesson.save();
+        const data = await newLesson.save();
 
         res.status(201).json({
             ok: true,
-            request
+            data
         });
 
     } catch (error) {
@@ -122,7 +122,42 @@ const addLesson = async (req, res) => {
 
 const updateLesson = async (req, res) => {
 
-    res.send('Capturando la ruta');
+    const { id } = req.params;
+
+    const body = req.body;
+
+
+    try {
+        
+        const data = await Lesson.findByIdAndUpdate(id, body, { new: true });
+
+        if(data){
+
+            res.status(200).json({
+                ok: true,
+                data
+            });
+
+        } else {
+
+            res.status(400).json({
+                ok: false,
+                msg: `Error: no se ha podido actualizar la lección con ID ${id}.`
+            });
+
+        };
+
+    } catch (error) {
+        
+        console.log(error);
+
+        res.status(500).json({
+            ok: false,
+            msg: 'Contacte con el administrador.',
+            error: error.message
+        });
+
+    };
 
 }; //!UPDATELESSON
 
