@@ -32,10 +32,21 @@ const getLessons = async (req, res) => {
         
         const data = await Lesson.find();
 
-        res.status(200).json({
-            ok: true,
-            data
-        });
+        if(data.length > 0){
+
+            res.status(200).json({
+                ok: true,
+                data
+            });
+
+        } else {
+
+            res.status(400).json({
+                ok: false,
+                msg: 'No se ha encontrado ninguna lección en la base de datos.'
+            });
+
+        };
         
     } catch (error) {
       
@@ -102,6 +113,7 @@ const addLesson = async (req, res) => {
 
         res.status(201).json({
             ok: true,
+            msg: 'La lección se ha creado con éxito.',
             data
         });
 
@@ -135,6 +147,7 @@ const updateLesson = async (req, res) => {
 
             res.status(200).json({
                 ok: true,
+                msg: `El documento con ID ${id} se ha editado con éxito.`,
                 data
             });
 
@@ -164,7 +177,40 @@ const updateLesson = async (req, res) => {
 
 const deleteLesson = async (req, res) => {
 
-    res.send('Capturando la ruta');
+    const { id } = req.params;
+
+
+    try {
+        
+        const data = await Lesson.findByIdAndDelete(id);
+
+        if(data){
+
+            res.status(200).json({
+                ok: true,
+                msg: `El documento con ID ${id} se ha eliminado correctamente.`
+            });
+
+        } else {
+
+            res.status(400).json({
+                ok: false,
+                msg: `Error: no se ha podido eliminar el documento con ID ${id}.`
+            });
+
+        };
+
+    } catch (error) {
+        
+        console.log(error);
+
+        res.status(500).json({
+            ok: false,
+            msg: 'Contacte con el administrador.',
+            error: error.message
+        });
+
+    };
 
 }; //!DELETELESSON
 
